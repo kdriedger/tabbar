@@ -6,13 +6,15 @@ class TabbarContent extends StatelessWidget {
   final List<Widget> children;
   final ScrollPhysics physics;
   final bool isSnaping;
-
+  final ValueChanged<int> onPageChanged;
+    
   const TabbarContent({
     Key key,
     @required this.controller,
     @required this.children,
     this.physics,
     this.isSnaping = true,
+    this.onPageChanged,
   }) : super(key: key);
 
   @override
@@ -22,6 +24,7 @@ class TabbarContent extends StatelessWidget {
       children: children,
       pageSnapping: isSnaping,
       physics: physics,
+      onPageChanged: onPageChanged
     );
   }
 }
